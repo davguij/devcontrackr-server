@@ -1,14 +1,18 @@
 {
-	"plugins": ["node"],
+	"plugins": ["node", "jest"],
 	"extends": [
 		"eslint:recommended",
 		"airbnb-base",
 		"plugin:import/errors",
-		"plugin:import/warnings"
+		"plugin:import/warnings",
+		"plugin:jest/recommended"
 	],
 	"parser": "babel-eslint",
 	"parserOptions": {
 		"sourceType": "module"
+	},
+	"env": {
+		"jest/globals": true
 	},
 	"rules": {
 		"no-tabs": "off",
