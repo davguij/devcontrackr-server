@@ -1,0 +1,8 @@
+type Location {
+	continent: String!
+	country: String!
+	city: String!
+	venue: String
+	latitude: Float
+	longitude: Float
+}

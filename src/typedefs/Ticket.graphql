@@ -1,0 +1,5 @@
+type Ticket {
+	description: String!
+	price: Int!
+	currency: String!
+}
