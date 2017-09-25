@@ -31,5 +31,5 @@ app.get('/', (req, res) => {
 });
 
 app.listen(process.env.PORT || 3000, () => {
-	console.log('Example app listening on port 3000!');
+	console.log(`DevCon server listening on port ${process.env.PORT || 3000}!`);
 });
