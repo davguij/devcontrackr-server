@@ -1,0 +1,48 @@
+type Conference {
+	id: ID!
+	name: String!
+	description: String!
+	# dates should be in proper date format?
+	dates: [Int!]!
+	# topics should be an enum?
+	topics: [String!]!
+	last_modified: Modif!
+	# languages should be in ISO format
+	languages: [String!]!
+	tickets: [Ticket]
+	# WebPresence to include homepage!, twitter profile, agenda page and tickets page
+	web_presence: WebPresence!
+	location: Location!
+	speakers: [Speaker]
+	# organizer and sponsors should include some more info?
+	organizer: String
+	sponsors: [String]
+}
+
+type Query {
+	conferences: [Conference]
+	conference(id: ID!): Conference
+}
+
+input CreateConferenceInput {
+	name: String!
+	description: [String!]!
+	dates: [Int]!
+	topics: [String!]!
+	languages: [String!]!
+	tickets: [CreateTicketInput]
+	web_presence: CreateWebPresenceInput!
+	location: CreateLocationInput!
+	speakers: [CreateSpeakerInput]
+	organizer: String
+	sponsors: [String]
+}
+
+type Mutation {
+	createConference(input: CreateConferenceInput!): Conference
+}
+
+schema {
+	query: Query
+	mutation: Mutation
+}

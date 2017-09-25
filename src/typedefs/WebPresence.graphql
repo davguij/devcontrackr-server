@@ -1,0 +1,13 @@
+type WebPresence {
+	homepage: String
+	twitter: String
+	agenda: String
+	tickets: String
+}
+
+input CreateWebPresenceInput {
+	homepage: String
+	twitter: String
+	agenda: String
+	tickets: String
+}

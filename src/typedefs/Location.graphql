@@ -1,0 +1,16 @@
+type Location {
+	continent: String!
+	country: String!
+	state: String
+	city: String!
+	venue: String
+	latitude: Float
+	longitude: Float
+}
+
+input CreateLocationInput {
+	country: String!
+	state: String
+	city: String!
+	venue: String
+}

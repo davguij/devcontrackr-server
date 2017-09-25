@@ -1,0 +1,13 @@
+type Speaker {
+	name: String!
+	company: String
+	twitter: String
+	github: String
+}
+
+input CreateSpeakerInput {
+	name: String!
+	company: String
+	twitter: String
+	github: String
+}
