@@ -20,14 +20,14 @@ app.use(
 	bodyParser.json(),
 	graphqlExpress({
 		schema,
-	})
+	}),
 );
 
 app.use(
 	'/graphiql',
 	graphiqlExpress({
 		endpointURL: '/graphql',
-	})
+	}),
 );
 
 export default app;
