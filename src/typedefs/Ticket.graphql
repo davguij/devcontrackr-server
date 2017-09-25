@@ -3,3 +3,9 @@ type Ticket {
 	price: Int!
 	currency: String!
 }
+
+input CreateTicketInput {
+	description: String!
+	price: Int!
+	currency: String!
+}

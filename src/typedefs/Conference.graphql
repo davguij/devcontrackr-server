@@ -24,10 +24,25 @@ type Query {
 	conference(id: ID!): Conference
 }
 
-# type Mutation {
-# 	createPage(locator: String, content: [String]): Page
-# }
+input CreateConferenceInput {
+	name: String!
+	description: [String!]!
+	dates: [Int]!
+	topics: [String!]!
+	languages: [String!]!
+	tickets: [CreateTicketInput]
+	web_presence: CreateWebPresenceInput!
+	location: CreateLocationInput!
+	speakers: [CreateSpeakerInput]
+	organizer: String
+	sponsors: [String]
+}
+
+type Mutation {
+	createConference(input: CreateConferenceInput!): Conference
+}
 
 schema {
 	query: Query
+	mutation: Mutation
 }
