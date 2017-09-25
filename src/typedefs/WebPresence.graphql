@@ -1,0 +1,6 @@
+type WebPresence {
+	homepage: String
+	twitter: String
+	agenda: String
+	tickets: String
+}
