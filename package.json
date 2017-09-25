@@ -4,6 +4,7 @@
 	"description": "Back end for DevConTrackr",
 	"main": "index.js",
 	"scripts": {
+		"pretest": "eslint ./src",
 		"test": "jest",
 		"test:watch": "npm test -- --watch",
 		"test:notify": "npm run test:watch -- --notify",
