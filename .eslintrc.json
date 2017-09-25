@@ -1,0 +1,17 @@
+{
+	"plugins": ["node"],
+	"extends": [
+		"eslint:recommended",
+		"airbnb-base",
+		"plugin:import/errors",
+		"plugin:import/warnings"
+	],
+	"parser": "babel-eslint",
+	"parserOptions": {
+		"sourceType": "module"
+	},
+	"rules": {
+		"no-tabs": "off",
+		"indent": ["error", "tab"]
+	}
+}
