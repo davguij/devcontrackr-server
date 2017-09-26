@@ -8,10 +8,7 @@ const ConferenceResolvers = {
 		conference: (_, { id }) => db.getOne('Conferences', id),
 	},
 	Mutation: {
-		createConference: (_, { input }) => {
-			console.log(input);
-			return db.create('Conferences', input);
-		},
+		createConference: (_, { input }) => db.create('Conferences', input),
 	},
 };
 

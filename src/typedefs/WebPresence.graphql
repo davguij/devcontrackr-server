@@ -1,12 +1,12 @@
 type WebPresence {
-	homepage: String
+	homepage: String!
 	twitter: String
 	agenda: String
 	tickets: String
 }
 
 input CreateWebPresenceInput {
-	homepage: String
+	homepage: String!
 	twitter: String
 	agenda: String
 	tickets: String
