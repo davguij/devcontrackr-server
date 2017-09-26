@@ -3,7 +3,7 @@ type Conference {
 	name: String!
 	description: String!
 	# dates should be in proper date format?
-	dates: [Int!]!
+	dates: [String!]!
 	# topics should be an enum?
 	topics: [String!]!
 	last_modified: Modif!
@@ -27,7 +27,7 @@ type Query {
 input CreateConferenceInput {
 	name: String!
 	description: [String!]!
-	dates: [Int]!
+	dates: [String!]!
 	topics: [String!]!
 	languages: [String!]!
 	tickets: [CreateTicketInput]

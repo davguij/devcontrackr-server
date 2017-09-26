@@ -1,10 +1,17 @@
+import DBConnector from '../connectors/db';
+
+const db = new DBConnector();
+
 const ConferenceResolvers = {
 	Query: {
-		conferences: () => [],
-		conference: (_, { id }) => ({ id }),
+		conferences: () => db.getAll('Conferences'),
+		conference: (_, { id }) => db.getOne('Conferences', id),
 	},
 	Mutation: {
-		createConference: (_, { input }) => ({ input }),
+		createConference: (_, { input }) => {
+			console.log(input);
+			return db.create('Conferences', input);
+		},
 	},
 };
 
