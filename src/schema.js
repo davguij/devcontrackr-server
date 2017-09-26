@@ -7,6 +7,8 @@ import Speaker from './typedefs/Speaker.graphql';
 import Ticket from './typedefs/Ticket.graphql';
 import WebPresence from './typedefs/WebPresence.graphql';
 
+import ConferenceResolvers from './resolvers/Conference';
+
 const schema = makeExecutableSchema({
 	typeDefs: [
 		// TestSchema,
@@ -17,6 +19,7 @@ const schema = makeExecutableSchema({
 		Ticket,
 		WebPresence,
 	],
+	resolvers: ConferenceResolvers,
 });
 
 export default schema;
