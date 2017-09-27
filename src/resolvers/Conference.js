@@ -9,6 +9,7 @@ const ConferenceResolvers = {
 	},
 	Mutation: {
 		createConference: (_, { input }) => db.create('Conferences', input),
+		updateConference: (_, { input }) => db.update('Conferences', input),
 	},
 };
 

@@ -19,7 +19,6 @@ export default class DBConnector {
 	}
 
 	async create(entity, payload) {
-		// const isOnDb =
 		const id = Buffer.from(payload.web_presence.homepage).toString('base64');
 		const lastModified = {
 			last_modified: {
@@ -31,6 +30,23 @@ export default class DBConnector {
 		const result = await this.rdb
 			.table(entity)
 			.insert(toBeSaved)
+			.run();
+		if (result.errors > 0) return new Error(result.first_error);
+		return toBeSaved;
+	}
+
+	async update(entity, payload) {
+		const { id } = payload;
+		const lastModified = {
+			last_modified: {
+				author: 'guijarro.dav@gmail.com', // TODO obv needs to be parametrized
+				datetime: Date.now().toString(),
+			},
+		};
+		const toBeSaved = Object.assign({}, payload, lastModified);
+		const result = await this.rdb
+			.get(id)
+			.update(toBeSaved)
 			.run();
 		if (result.errors > 0) return new Error(result.first_error);
 		return toBeSaved;

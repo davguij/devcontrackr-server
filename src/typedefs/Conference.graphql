@@ -38,8 +38,24 @@ input CreateConferenceInput {
 	sponsors: [String]
 }
 
+input UpdateConferenceInput {
+	id: ID!
+	name: String
+	description: String
+	dates: [String]
+	topics: [String]
+	languages: [String]
+	tickets: [CreateTicketInput]
+	web_presence: CreateWebPresenceInput
+	location: CreateLocationInput
+	speakers: [CreateSpeakerInput]
+	organizer: String
+	sponsors: [String]
+}
+
 type Mutation {
 	createConference(input: CreateConferenceInput!): Conference
+	updateConference(input: UpdateConferenceInput!): Conference
 }
 
 schema {
