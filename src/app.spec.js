@@ -7,3 +7,10 @@ describe('Test the root path', () => {
 		expect(response.statusCode).toBe(200);
 	});
 });
+
+describe('Test the graphql path', () => {
+	test('It should not reponse the GET method', async () => {
+		const response = await request(app).get('/graphql');
+		expect(response.statusCode).toBe(400);
+	});
+});
