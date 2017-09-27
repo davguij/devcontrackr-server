@@ -19,9 +19,12 @@ type Conference {
 	sponsors: [String]
 }
 
-type Query {
+type RootQuery {
 	conferences: [Conference]
 	conference(id: ID!): Conference
+	# TODO can we move the speakers queries to its own typedef file
+	speakers: [Speaker]
+	speaker(id: ID!): Speaker
 }
 
 input CreateConferenceInput {
@@ -33,7 +36,7 @@ input CreateConferenceInput {
 	tickets: [CreateTicketInput]
 	web_presence: CreateWebPresenceInput!
 	location: CreateLocationInput!
-	speakers: [CreateSpeakerInput]
+	speakers: [ID!]
 	organizer: String
 	sponsors: [String]
 }
@@ -48,17 +51,19 @@ input UpdateConferenceInput {
 	tickets: [CreateTicketInput]
 	web_presence: CreateWebPresenceInput
 	location: CreateLocationInput
-	speakers: [CreateSpeakerInput]
+	speakers: [ID!]
 	organizer: String
 	sponsors: [String]
 }
 
-type Mutation {
+type RootMutation {
 	createConference(input: CreateConferenceInput!): Conference
 	updateConference(input: UpdateConferenceInput!): Conference
+	createSpeaker(input: CreateSpeakerInput!): Speaker
+	updateSpeaker(input: UpdateSpeakerInput!): Speaker
 }
 
 schema {
-	query: Query
-	mutation: Mutation
+	query: RootQuery
+	mutation: RootMutation
 }

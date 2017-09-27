@@ -1,4 +1,5 @@
 type Speaker {
+	id: ID!
 	name: String!
 	company: String
 	twitter: String
@@ -7,6 +8,14 @@ type Speaker {
 
 input CreateSpeakerInput {
 	name: String!
+	company: String
+	twitter: String
+	github: String
+}
+
+input UpdateSpeakerInput {
+	id: ID!
+	name: String
 	company: String
 	twitter: String
 	github: String
