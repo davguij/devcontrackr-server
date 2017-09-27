@@ -1,4 +1,5 @@
 type Location {
+	id: ID!
 	continent: String!
 	country: String!
 	state: String
