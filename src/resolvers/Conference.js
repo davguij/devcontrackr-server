@@ -12,14 +12,22 @@ const ConferenceResolvers = {
 	Conference: {
 		speakers({ speakers }, _, context) {
 			console.log(speakers);
-			// need a table join here...!
-			return [{ id: speakers[0].id, name: 'David Guijarro' }];
+			// TODO maybe I need a table join here...!
+			const returnedSpeakers = speakers.map(async speakerId =>
+				db.getOne('Speakers', speakerId));
+			return returnedSpeakers;
 		},
 	},
 	RootMutation: {
-		createConference: (_, { input }) => db.create('Conferences', input),
+		createConference: (_, { input }) => {
+			const id = Buffer.from(input.web_presence.homepage).toString('base64');
+			return db.create('Conferences', id, input);
+		},
 		updateConference: (_, { input }) => db.update('Conferences', input),
-		createSpeaker: (_, { input }) => db.create('Speakers', input),
+		createSpeaker: (_, { input }) => {
+			const id = Buffer.from(input.twitter).toString('base64');
+			return db.create('Speakers', id, input);
+		},
 		updateSpeaker: (_, { input }) => db.update('Speakers', input),
 	},
 };

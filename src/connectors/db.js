@@ -18,8 +18,7 @@ export default class DBConnector {
 			.run();
 	}
 
-	async create(entity, payload) {
-		const id = Buffer.from(payload.web_presence.homepage).toString('base64');
+	async create(entity, id, payload) {
 		const lastModified = {
 			last_modified: {
 				author: 'guijarro.dav@gmail.com', // TODO obv needs to be parametrized

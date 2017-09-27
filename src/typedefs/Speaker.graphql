@@ -2,14 +2,14 @@ type Speaker {
 	id: ID!
 	name: String!
 	company: String
-	twitter: String
+	twitter: String!
 	github: String
 }
 
 input CreateSpeakerInput {
 	name: String!
 	company: String
-	twitter: String
+	twitter: String!
 	github: String
 }
 
