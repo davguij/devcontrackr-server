@@ -2,5 +2,5 @@ type Modif {
 	# author should be an email
 	author: String!
 	# datetime should be a proper datetime format
-	datetime: Int!
+	datetime: String!
 }
